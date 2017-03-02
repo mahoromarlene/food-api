@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get "/", to: "pages#index"
+  post "/", to: "pages#create"
+  delete "/:id", to: "pages#destroy"
+
   namespace :api do
     namespace :v2 do
       get "/foods", to: 'foods#index'

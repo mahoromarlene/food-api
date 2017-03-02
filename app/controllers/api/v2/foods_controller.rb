@@ -1,7 +1,7 @@
 class Api::V2::FoodsController < ApplicationController
-  def index
+   def index
     @foods = Food.all
-    render "index.json.jbuilder"
+    render json: @foods
   end
 
   def show
@@ -11,6 +11,7 @@ class Api::V2::FoodsController < ApplicationController
   def create
     @food = Food.create(ingredient: params[:ingredient], spice: params[:spice], measurement: params[:measurement])
     @food.save
+    render json: @foods
 
   end
 
@@ -25,6 +26,6 @@ class Api::V2::FoodsController < ApplicationController
   def destroy
     @food = Food.find_by(id: params[:id])
     @food.destroy
-    render :json 
+    render json: @food
   end
 end
