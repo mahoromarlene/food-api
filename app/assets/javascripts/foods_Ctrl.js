@@ -34,7 +34,11 @@
     }
 
     $scope.toggleOrder = function(attribute){
-      $scope.orderAttribute = attribute;
+      if (attribut === $scope.orderAttribute){
+        $scope.descending = !$scope.descending
+      } else {
+        $scope.orderAttribute = attribute;
+      }
     }
     window.$scope =$scope;
   });
