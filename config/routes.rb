@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get "/", to: "pages#index"
   post "/", to: "pages#create"
+  patch "/:id", to: "pages#update"
   delete "/:id", to: "pages#destroy"
 
   namespace :api do

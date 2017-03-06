@@ -17,10 +17,9 @@ class Api::V2::FoodsController < ApplicationController
 
   def update
     @food = Food.find_by(id: params[:id])
-    food.ingredient = params[:ingredient]
-    food.spice = params[:spice]
-    food.measurement = params[:measurement]
+    @food.update_attributes(ingredient = params[:ingredient], spice = params[:spice],measurement = params[:measurement])
     @food.save
+    render json: @foods
   end
   
   def destroy

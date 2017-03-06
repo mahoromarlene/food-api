@@ -26,8 +26,15 @@
       });
     }
 
-    $scope.updateFood = function(index){
+    $scope.updateFood = function(food){
+      $http.patch("/api/v2/foods/" + food.id + ".json").then(function(response){
+        var index = $scope.foods.indexOf(food);
+        $scope.foods[index] =response.data;
+      });
+    }
 
+    $scope.toggleOrder = function(attribute){
+      $scope.orderAttribute = attribute;
     }
     window.$scope =$scope;
   });
